@@ -1,3 +1,6 @@
+this project Name is NewsMonkey. 
+NewsMonkey is a news app which can be used to grab daily news. if you are interested in news like sports, weather, politics news, newsmokey is for you!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
