@@ -1,4 +1,4 @@
-this project Name is NewsMonkey. 
+This Project Name is NewsMonkey. 
 NewsMonkey is a news app which can be used to grab daily news. if you are interested in news like sports, weather, politics news, newsmokey is for you!
 
 # Getting Started with Create React App
