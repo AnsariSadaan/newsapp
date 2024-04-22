@@ -52,12 +52,13 @@ const News = (props) => {
 
     const fetchMoreData = async () => {
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page + 1}&pageSize=${props.pageSize}`;
-        setPage(page + 1)
+        setPage(prevPage => prevPage + 1); // Update page using functional form
         let data = await fetch(url);
         let parseData = await data.json();
-        setArticles(articles.concat(parseData.articles))
-        setTotalResults(parseData.totalResults)
+        setArticles(prevArticles => prevArticles.concat(parseData.articles)); // Use functional form for updating articles
+        setTotalResults(parseData.totalResults);
     };
+
 
     return (
         <>
