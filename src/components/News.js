@@ -3,7 +3,6 @@ import NewsItems from './NewsItems'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useCallback } from 'react';
 
 
 const News = (props) => {
@@ -18,25 +17,26 @@ const News = (props) => {
     };
 
 
-    const updateNews = useCallback(async () => {
-        setProgress(10);
-        const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page}&pageSize=${pageSize}`;
-        setLoading(true);
+    const updateNews = async () => {
+        props.setProgress(10);
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page}&pageSize=${props.pageSize}`;
+        setLoading(true)
         let data = await fetch(url);
-        setProgress(30);
+        props.setProgress(30);
         let parseData = await data.json();
-        setProgress(70);
-        setArticles(parseData.articles);
-        setTotalResults(parseData.totalResults);
-        setLoading(false);
-        setProgress(100);
-    }, [setProgress, country, category, apikey, pageSize, page]);
+        props.setProgress(70);
+        setArticles(parseData.articles)
+        setTotalResults(parseData.totalResults)
+        setLoading(false)
+        props.setProgress(100);
+    }
 
 
     useEffect(() => {
         document.title = `${capitalizeFirstLowercaseRest(props.category)} - NewsMonkey`;
         updateNews();
-    }, [props.category, updateNews])
+        // eslint-disable-next-line
+    }, [])
 
 
 
