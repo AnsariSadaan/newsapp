@@ -3,6 +3,7 @@ import NewsItems from './NewsItems'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useCallback } from 'react';
 
 
 const News = (props) => {
