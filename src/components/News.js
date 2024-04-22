@@ -19,18 +19,18 @@ const News = (props) => {
 
 
     const updateNews = useCallback(async () => {
-        props.setProgress(10);
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page}&pageSize=${props.pageSize}`;
+        setProgress(10);
+        const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page}&pageSize=${pageSize}`;
         setLoading(true);
         let data = await fetch(url);
-        props.setProgress(30);
+        setProgress(30);
         let parseData = await data.json();
-        props.setProgress(70);
+        setProgress(70);
         setArticles(parseData.articles);
         setTotalResults(parseData.totalResults);
         setLoading(false);
-        props.setProgress(100);
-    }, [props.setProgress, props.country, props.category, props.apikey, props.pageSize, page]);
+        setProgress(100);
+    }, [setProgress, country, category, apikey, pageSize, page]);
 
 
     useEffect(() => {
