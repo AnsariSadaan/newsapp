@@ -35,7 +35,7 @@ const News = (props) => {
     useEffect(() => {
         document.title = `${capitalizeFirstLowercaseRest(props.category)} - NewsMonkey`;
         updateNews();
-    }, [])
+    }, [props.category, updateNews])
 
 
 
